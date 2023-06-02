@@ -61,30 +61,30 @@ function validateform()
     return false;
   }
 }
+//------------------SNACK BAR-----------------------------------
+
 
 //--------------------SUBMITION STARTS HERE-----------------
-// window.addEventListener('load', function() {
-//   var button = document.getElementById('myButton');
-//   button.disabled = false;
-// })
-
 
 $("#submit-gform").submit((e)=>{
   e.preventDefault()
-  // var button1 = document.getElementById('myButton');
-  // console.log(button1)
-  // button1.disabled = true;
   $.ajax({
       url:"https://script.google.com/macros/s/AKfycbzGaNpGZlyopeLyT-usFRaNRybXQ0KwKLhPBHaLD0zqVtY7mRUJyTegNd6pZLapcd97/exec",
       data:$("#submit-gform").serialize(),
       method:"post",
       success:function (response){
-          alert("Form submitted successfully")
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
           window.location.reload()
           //window.location.href="https://google.com"
       },
       error:function (err){
-          alert("Something Error")
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        window.location.reload()
+        
 
       }
   })
